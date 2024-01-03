@@ -1,0 +1,15 @@
+{
+  "name": "pc_stats",
+  "version": "1.0.0",
+  "description": "App to display computer stats",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rémy Tremblay",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^28.1.1"
+  }
+}
