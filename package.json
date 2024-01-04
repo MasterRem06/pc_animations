@@ -2,14 +2,19 @@
   "name": "pc_stats",
   "version": "1.0.0",
   "description": "App to display computer stats",
-  "main": "main.js",
+  "main": "./dist/main.js",
   "scripts": {
-    "start": "electron .",
+    "build": "tsc",
+    "start": "npm run build && electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Rémy Tremblay",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^28.1.1"
+    "electron": "^28.1.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "systeminformation": "^5.21.22"
   }
 }
