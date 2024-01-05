@@ -1,0 +1,67 @@
+$outer-padding: 6px;
+$outer-circle: 50px;
+$outer-cylinder: 15px;
+$cylinder-height: 50px;
+
+.thermo-container {
+    width: $outer-circle;
+}
+
+.outer {
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.inner {
+    background-color: red;
+}
+
+.thermo-inner-circle {
+    @extend .inner;
+
+    width: calc(#{$outer-circle} - #{$outer-padding});
+    height: calc(#{$outer-circle} - #{$outer-padding});
+    border-radius: 50%;
+}
+
+.thermo-outer-circle {
+    @extend .outer;
+
+    width: $outer-circle;
+    height: $outer-circle;
+    border-radius: 50%;
+    align-items: center;
+}
+
+.thermo-cylinder-container {
+    position: relative;
+    width: $outer-circle;
+    height: $cylinder-height;
+}
+
+.thermo-outer-cylinder {
+    @extend .outer;
+
+    position: absolute;
+    width: $outer-cylinder;
+    height: $cylinder-height;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    bottom: -3px;
+    border-top-right-radius: calc(#{$outer-cylinder} / 2);
+    border-top-left-radius: calc(#{$outer-cylinder} / 2);
+    align-items: flex-end;
+    border-bottom: unset;
+}
+
+.thermo-inner-cylinder {
+    @extend .inner;
+
+    width: calc(#{$outer-cylinder} - #{$outer-padding});
+    height: 30px;
+}

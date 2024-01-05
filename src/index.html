@@ -5,9 +5,24 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <title>PC Stats</title>
+
+    <link rel="stylesheet" href="../dist/styles/thermometer.css">
   </head>
+  
   <body>
     <script src="../dist/renderers/gpu/gpu-renderer.js" defer></script>
+
+    <div class="thermo-container">
+      <div class="thermo-cylinder-container">
+        <div class="thermo-outer-cylinder">
+          <div class="thermo-inner-cylinder"></div>
+        </div>
+      </div>
+
+      <div class="thermo-outer-circle">
+        <div class="thermo-inner-circle"></div>
+      </div>  
+    </div>
 
     <h3 id="gpu-temp">Temperature = 0</h3>
   </body>
