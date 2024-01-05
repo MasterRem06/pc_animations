@@ -14,13 +14,7 @@ $cylinder-height: 50px;
     background-color: white;
 }
 
-.inner {
-    background-color: red;
-}
-
 .thermo-inner-circle {
-    @extend .inner;
-
     width: calc(#{$outer-circle} - #{$outer-padding});
     height: calc(#{$outer-circle} - #{$outer-padding});
     border-radius: 50%;
@@ -60,8 +54,7 @@ $cylinder-height: 50px;
 }
 
 .thermo-inner-cylinder {
-    @extend .inner;
-
     width: calc(#{$outer-cylinder} - #{$outer-padding});
-    height: 30px;
+    position: absolute;
+    bottom: -2px;
 }
