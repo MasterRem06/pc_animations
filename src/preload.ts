@@ -1,5 +1,5 @@
-import { contextBridge, ipcRenderer } from "electron";
+import { contextBridge, ipcRenderer } from 'electron'
 
-contextBridge.exposeInMainWorld("api", {
-    getGpuTemperature: () => ipcRenderer.invoke("getGpuTemperature")
-});
+contextBridge.exposeInMainWorld('api', {
+  getGpuTemperature: async () => await ipcRenderer.invoke('getGpuTemperature')
+})
