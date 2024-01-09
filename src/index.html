@@ -12,20 +12,24 @@
   <body>
     <script src="../dist/renderers/gpu/gpu-renderer.js" defer></script>
 
-    <div class="thermo-container">
-      <div class="thermo-cylinder-container">
-        <div class="thermo-outer-cylinder">
-          <div class="thermo-inner-cylinder" id="thermo-temp-bar"></div>
+    <section class="wave-container">
+      <div class="water-wave"></div>
+    </section>
+
+    <section class="informations">
+      <div class="thermo-container">
+        <div class="thermo-cylinder-container">
+          <div class="thermo-outer-cylinder">
+            <div class="thermo-inner-cylinder" id="thermo-temp-bar"></div>
+          </div>
         </div>
+  
+        <div class="thermo-outer-circle">
+          <div class="thermo-inner-circle" id="thermo-temp-circle"></div>
+        </div>  
       </div>
-
-      <div class="thermo-outer-circle">
-        <div class="thermo-inner-circle" id="thermo-temp-circle"></div>
-      </div>  
-    </div>
-
-    <h3 id="gpu-temp">Temperature = 0</h3>
-
-    <section class="water-wave"></section>
+  
+      <h3 id="gpu-temp">Temperature = 0</h3>
+    </section>
   </body>
 </html>
