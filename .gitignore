@@ -51,6 +51,7 @@ web_modules/
 
 # TypeScript cache
 *.tsbuildinfo
+*.tsbuildinfo
 
 # Optional npm cache directory
 .npm
@@ -159,5 +160,8 @@ dist
 # Ignore all local history of files
 .history
 .ionide
+
+# Electron-packager build
+PC Animations-win32-x64/*
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,node

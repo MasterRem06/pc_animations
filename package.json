@@ -1,11 +1,14 @@
 {
   "name": "pc_stats",
+  "productName": "PC Animations",
   "version": "1.0.0",
   "description": "App to display computer stats",
-  "main": "./dist/main.js",
+  "main": "dist/main.js",
   "scripts": {
-    "compile-scss": "sass src/styles/thermometer.scss:dist/styles/thermometer.css",
-    "build": "tsc",
+    "compile-scss": "sass src/styles/styles.scss:dist/styles/styles.css",
+    "copy-assets": "copyfiles -u 1 src/assets/**/* dist/",
+    "build": "tsc && npm run copy-assets",
+    "build:exe": "npx @electron/packager . --icon=build/straw_hats_icon.ico --overwrite",
     "start": "npm run compile-scss && npm run build && electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint \"**/*.ts\"",
@@ -14,8 +17,11 @@
   "author": "Rémy Tremblay",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^22.10.1",
     "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "copyfiles": "^2.4.1",
     "electron": "^28.1.1",
+    "electron-packager": "^17.1.2",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard-with-typescript": "^43.0.0",
@@ -25,7 +31,7 @@
     "eslint-plugin-prettier": "^5.1.2",
     "eslint-plugin-promise": "^6.1.1",
     "prettier": "^3.1.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.7.2"
   },
   "dependencies": {
     "sass": "^1.69.7",

@@ -1,18 +1,11 @@
-import { app, ipcMain, BrowserWindow, screen } from 'electron'
+import { app, BrowserWindow, screen, type BrowserWindowConstructorOptions, type Display } from 'electron'
 import path from 'node:path'
-import si from 'systeminformation'
 
 let mainWindow: BrowserWindow
 
-const prod = false;
-
+const prod = true
 function createWindow(): void {
-  const displays = screen.getAllDisplays();
-  const primaryDisplay = screen.getPrimaryDisplay();
-
-  const targetDisplay = displays.length === 3 && prod ? displays[2] : primaryDisplay;
-
-  mainWindow = new BrowserWindow({
+  let mainWindowConfig: BrowserWindowConstructorOptions = {
     width: 800,
     height: 480,
     webPreferences: {
@@ -20,21 +13,24 @@ function createWindow(): void {
       sandbox: false
     },
     show: false,
-    x: targetDisplay.bounds.x,
-    y: targetDisplay.bounds.y,
     fullscreen: prod,
     autoHideMenuBar: prod
-  })
+  }
+
+  mainWindowConfig = setDisplay(mainWindowConfig);
+
+  mainWindow = new BrowserWindow(mainWindowConfig)
 
   void mainWindow.loadFile('./src/index.html')
 
-  mainWindow.webContents.openDevTools()
+  if (!prod) {
+    mainWindow.webContents.openDevTools()
+  }
 
   mainWindow.on('ready-to-show', () => { mainWindow.show() })
 }
 
 app.whenReady().then(() => {
-  ipcMain.handle('getGpuStats', getGpuStats)
   createWindow()
 }).catch(() => {
   console.log('Can\'t start application')
@@ -44,15 +40,18 @@ app.on('window-all-closed', () => {
   app.quit()
 })
 
-async function getGpuStats(): Promise<string> {
-  const graphics = await si.graphics();
-  const cpu = await si.cpu();
-  const cpuTemperature = await si.cpuTemperature();
+function setDisplay(options: BrowserWindowConstructorOptions): BrowserWindowConstructorOptions {
+  const displays = screen.getAllDisplays();
+  const primaryDisplay = screen.getPrimaryDisplay();
 
-  console.log('cpu',cpu);
-  console.log('cpuTemperature',cpuTemperature);
+  let display = primaryDisplay;
+  if (prod) {
+    display = displays.reduce((acc: Display, display: Display) => {
+      return display.size.width < acc.size.width ? display : acc
+    }, primaryDisplay);
+  }
 
-  const gpuStats = graphics?.controllers[0].temperatureGpu
-
-  return JSON.stringify({gpuTemp: gpuStats ?? 0, gpuFPS: 60})
+  options.x = display.bounds.x;
+  options.y = display.bounds.y;
+  return options;
 }
