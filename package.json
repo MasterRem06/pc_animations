@@ -1,8 +1,8 @@
 {
-  "name": "pc_stats",
+  "name": "pc_animations",
   "productName": "PC Animations",
   "version": "1.0.0",
-  "description": "App to display computer stats",
+  "description": "App to display animated gif in full screen",
   "main": "dist/main.js",
   "scripts": {
     "compile-scss": "sass src/styles/styles.scss:dist/styles/styles.css",
