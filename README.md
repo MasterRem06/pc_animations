@@ -8,4 +8,4 @@ To change the mode, change the `prod` variable in the `main.ts`.
 
 To create the executable of the app for Windows, run `npm run build:exe`.
 
-https://github.com/user-attachments/assets/6b2ff40a-a230-40e2-8bf8-21136c184dd9
+https://github.com/user-attachments/assets/476852ed-d95f-4a5b-b75d-d37424b7f2cc
