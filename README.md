@@ -7,3 +7,5 @@ In prod mode, the applciation checks all the displays of the PC to find teh smal
 To change the mode, change the `prod` variable in the `main.ts`.
 
 To create the executable of the app for Windows, run `npm run build:exe`.
+
+https://github.com/user-attachments/assets/6b2ff40a-a230-40e2-8bf8-21136c184dd9
