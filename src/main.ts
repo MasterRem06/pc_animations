@@ -3,7 +3,7 @@ import path from 'node:path'
 
 let mainWindow: BrowserWindow
 
-const prod = true
+const prod = false
 function createWindow(): void {
   let mainWindowConfig: BrowserWindowConstructorOptions = {
     width: 800,
