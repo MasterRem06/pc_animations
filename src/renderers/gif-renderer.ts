@@ -14,6 +14,9 @@ const IMAGES = [
     'luffy',
     'naruto',
     'tanjiro',
+    'hells_paradise',
+    'vinland',
+    'solo_leveling'
 ];
 
 let currentImageIndex: number = 0;
